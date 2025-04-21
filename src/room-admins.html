@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Room Admin Guide</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        header {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        h1 {
+            color: #0DBD8B;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #0DBD8B;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        nav a:hover {
+            background-color: #f0f0f0;
+        }
+        section {
+            margin-bottom: 40px;
+            display: none;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        section:target {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        footer {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .default-content {
+            display: block;
+        }
+        .indent {
+             margin-left: 1em;
+             padding-left: 1em;
+        }
+        section:target ~ .default-content {
+            display: none;
+        }
+        .home-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-decoration: none;
+            color: #0DBD8B;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        .home-button:hover {
+            background-color: #f0f0f0;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #111;
+                color: #eee;
+            }
+            header, footer {
+                border-color: #333;
+            }
+            h1, nav a {
+                color: #3EDD9C;
+            }
+            nav a:hover {
+                background-color: #222;
+            }
+            section {
+                border-color: #333;
+            }
+            .home-button {
+                color: #3EDD9C;
+            }
+            .home-button:hover {
+                background-color: #222;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p> <a href="index.html" class="home-button">Home</a> </p> <br>
+        <h1>Matrix Room Admin Guide</h1>
+        <p>Quickstart guide for setting up a Matrix room</p>        
+    </header>
+
+    <main>
+        <div class="default-content">
+            <p>The tips and tricks here are mant with spam and abuse in mind, this is not a guide for how to use Matrix clients like Element. If you need support for that, ask in the support room for the client you are using. </p>
+            <br>
+            <h2>Check your settings</h2>
+            <p style="font-weight: 800;">Join rules</p>
+            <p class="indent">Verify your room’s access settings: Public, Invite-only, Knock, or Space-limited.</p>
+            <p style="font-weight: 800;">Permissions</p>
+            <p class="indent">Check the permissions inside your room:</p>
+            <ul>
+                <li>Who can send invites? Some people will send spam invites to your room to harm its reputation.</li>
+                <li>Who can notify everyone? People might try to annoy others by sending a message with "@room".</li>
+            </ul>
+            <br>
+            <h2>Dont loose control</h2>
+            <p style="font-weight: 800;">Setup backup accounts</p>
+            <p class="indent">By creating backup accounts on other Matrix servers, you can still access and manage your rooms—even if your usual server goes down. <br> After joining with your backup account(s), make sure to give them enough permissions in your room.</p>
+            <br>
+            <h2>Dont be the only Admin / Mod</h2>
+            <p style="font-weight: 800;">Ask others to help </p>
+            <p class="indent">This can be tricky, especially in the beginning when your community is still small. But when your room grows, you should consider to promote members of your community to moderator and administrator.<br>This has two advantages. The first one is that the availability of active moderation gets better. The second advantage is that in case you loose interest in your community or matrix alltogether, the rooms you created dont become zombie rooms.</p>    
+
+        </div>
+
+        <section id="1">
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>This guide is maintained by the Matrix admin community.</p>
+        <p>Last updated: <time datetime="YYYY-MM-DD">[update date]</time></p>
+    </footer>
+</body>
+</html>

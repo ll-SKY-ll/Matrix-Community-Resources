@@ -41,13 +41,13 @@
         }
         section {
             margin-bottom: 40px;
-            display: none; /* Hide all sections by default */
+            display: none;
             padding: 20px;
             border: 1px solid #eee;
             border-radius: 8px;
         }
         section:target {
-            display: block; /* Show only the targeted section */
+            display: block;
             animation: fadeIn 0.3s ease-in-out;
         }
         @keyframes fadeIn {
@@ -135,7 +135,7 @@
         <section id="1">
             <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >Introduction</h2>
             <h2>What are moderation bots?</h2>
-            <p>Moderationbots in Matrix are mainly used to easily ban users from rooms, delete spam messages and handle server ACLs in rooms.<br> Though some of them have extended capabilities for moderating individual rooms, a whole set of rooms or even the server itself.<br> <br> The single most effective feature that all of them share however, is the ability to subscribe to so called "policy lists" where they can synchronize user and server bans. <br> The best example of such a list is the <a href="https://matrix.to/#/#community-moderation-effort-bl:neko.dev" style="color: #0DBD8B;"> CME</a> (community moderation effort) list. This list is maintained by a set of highly trusted community members and used by many in the matrix community to keep ther rooms free of spam.<br> <br> </p>
+            <p>Moderationbots in Matrix are mainly used to easily ban users from rooms, delete spam messages and handle server ACLs in rooms.<br> Though some of them have extended capabilities for moderating individual rooms, a whole set of rooms or even the server itself.<br> <br> The single most effective feature that all of them share however, is the ability to subscribe to so called "policy lists" where they can synchronize user and server bans. <br> The best example of such a list is the <a href="https://matrix.to/#/#community-moderation-effort-bl:neko.dev" style="color: #0DBD8B;"> CME</a> (community moderation effort) list. This list is maintained by a set of highly trusted community members and used by many in the matrix community to keep their rooms free of spam.<br> <br> </p>
             
             <h2>Why should I set one up?</h2>
             <p style="font-weight: 800;">Provide effective moderation tools to keep your users safe</p>
@@ -156,7 +156,7 @@
             <br>
             <h2>Draupnir</h2>
             <p style="font-weight: 800;" >Github repo: <a href="https://github.com/the-draupnir-project/Draupnir" style="color: #0DBD8B;"> Draupnir</a><br> Support room on matrix: <a href="https://matrix.to/#/#draupnir:matrix.org" style="color: #0DBD8B;">#draupnir:matrix.org</a></p>
-            <p class="indent"> Draupnir is a fork of mjolnir, with faster paced and more community driven development, often deployed to non-foundation communities. Its more performant than Mjolnir and also has a lot more features.</p>
+            <p class="indent"> Draupnir is a fork of mjolnir, with faster paced and more community driven development, often deployed to non-foundation communities. Its more performant than Mjolnir and has more features. It has also seen a lot of work in terms of making it more user error safe than Mjolnir, meaning that its harder to accidentally do something wrong.</p>
             <br>
             <h2>Meowlnir</h2>
             <p style="font-weight: 800;" >Github repo: <a href="https://github.com/maunium/meowlnir" style="color: #0DBD8B;"> Meowlnir</a> <br> Support room on matrix: <a href="https://matrix.to/#/#meowlnir:maunium.net" style="color: #0DBD8B;">#meowlnir:maunium.net</a></p>

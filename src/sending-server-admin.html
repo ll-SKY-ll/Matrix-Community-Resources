@@ -8,7 +8,7 @@
         body {
             font-family: sans-serif;
             line-height: 1.6;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
             color: #333;
@@ -41,13 +41,13 @@
         }
         section {
             margin-bottom: 40px;
-            display: none; /* Hide all sections by default */
+            display: none;
             padding: 20px;
             border: 1px solid #eee;
             border-radius: 8px;
         }
         section:target {
-            display: block; /* Show only the targeted section */
+            display: block;
             animation: fadeIn 0.3s ease-in-out;
         }
         @keyframes fadeIn {
@@ -91,7 +91,6 @@
             padding: 10px;
         }
         summary {
-            font-weight: bold;
             cursor: pointer;
             padding: 5px;
             outline: none;
@@ -135,7 +134,7 @@
     <header>
         <p> <a href="index.html" class="home-button">Home</a> </p> <br>
         <h1>Matrix Server Admin Guide</h1>
-        <p>Tips for dealing with cases where illegal content got federated to your server</p>
+        <p>Tips for dealing with users of your server that send spam & illegal content</p>
         
         <nav>
             <ul>
@@ -155,19 +154,13 @@
 
         <section id="1">
             <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >Immediate Actions</h2>
-            <h2>Notify server / room admins</h2>
-            <p style="font-weight: 800;">Try reaching out to the admin of the spamming users homeserver</p>
-            <p class="indent"> The most effective way to stop spam, is to try to get the account of the spamming user deactivated. Try to reach the server admin via contact info from <a href="https://spec.matrix.org/v1.14/client-server-api/#getwell-knownmatrixsupport" style="color: #0DBD8B;"> MSC1929</a>.</p>    
             
-            <p style="font-weight: 800;">Try reaching out to the admin/moderators of the room that gets spammed</p>
-            <p class="indent"> This can be very tedious, especially if the spammer just moves on to the next room after getting banned. This also wont scale and is therefore no real option for bigger instances.</p>    
-            <br>
-            <h2>Cleanup the spam</h2>
-            <p style="font-weight: 800;">Delete remote media</p>
-
+            <h2>Stop the spam</h2>
+            
             <details>
                 <summary>Synapse</summary>
-                <p class="indent">Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/media_admin_api.html#purge-remote-media-api" style="color: #0DBD8B;"> "Purge remote Media" admin API</a> to delete all media from remote servers. <br> <br> 💡 This is not as destructive as it sounds, media like avatars or other images in chats will be re-downloaded from the original server as soon as a client requests it again. Youre only deleting your local cache  </p>
+                <p style="font-weight: 800;">Suspend the account of the spamming user </p>
+                <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#suspendunsuspend-account" style="color: #0DBD8B;"> "Suspend account" admin API</a> to suspend the user account to prevent further spam. </p>
             </details>
 
             <details>
@@ -182,58 +175,100 @@
                 <p class="indent"></p>
             </details>
 
-            <br>
+            <h2>Cleanup the spam</h2>
+
+            <details>
+                <summary>Synapse</summary>
+                <p style="font-weight: 800;">Issue redactions for all the events that the user has sent </p>
+                <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#redact-all-the-events-of-a-user" style="color: #0DBD8B;"> "Redact all events of a user" admin API</a> to puppet the user and send redactions for all events sent by the user. <br> 💡 Tip: If you provide a empty room-list in the API call, then all events from all rooms that the user is in, get redacted.  </p>
+                <p style="font-weight: 800;">Delete the media that the user has uploaded </p>
+                <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#delete-media-uploaded-by-a-user" style="color: #0DBD8B;"> "Delete media uploaded by a user" admin API</a> to delete all media files uploaded by a user. </p>
+            </details>
+
+            <details>
+                <summary>Conduwuit</summary>
+                <p style="font-weight: 800;">Placeholder</p>
+                <p class="indent"></p>
+            </details>
+
+            <details>
+                <summary>Conduit</summary>
+                <p style="font-weight: 800;">Placeholder</p>
+                <p class="indent"></p>
+            </details>
+
+            <h2>Optional: collect info about the user</h2>
+
+            <details>
+                <summary>Synapse</summary>
+                <p style="font-weight: 800;">Query the whole user account</p>
+                <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#query-user-account" style="color: #0DBD8B;"> "Query user account" admin API</a> to get more info about the user account, things like threepids can be usefull for later investigations.</p>    
+                <p style="font-weight: 800;">List all devices incl. last seen ip addresses</p>
+                <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#list-all-devices" style="color: #0DBD8B;"> "List all devices" admin API</a> to get a list of connections from that account.</p>
+            </details>
+            
+            <details>
+                <summary>Conduwuit</summary>
+                <p style="font-weight: 800;">Placeholder</p>
+                <p class="indent"></p>
+            </details>
+
+            <details>
+                <summary>Conduit</summary>
+                <p style="font-weight: 800;">Placeholder</p>
+                <p class="indent"></p>
+            </details>
+
+            <h2>Final actions</h2>
+
+            <details>
+                <summary>Synapse</summary>
+                <p style="font-weight: 800;">Deactivate the user account </p>
+                <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#deactivate-account" style="color: #0DBD8B;"> "Deactivate account" admin API</a> to ultimately deactivate the account. </p>
+            </details>
+            
+            <details>
+                <summary>Conduwuit</summary>
+                <p style="font-weight: 800;">Placeholder</p>
+                <p class="indent"></p>
+            </details>
+            
+            <details>
+                <summary>Conduit</summary>
+                <p style="font-weight: 800;">Placeholder</p>
+                <p class="indent"></p>
+            </details>
+
             <p> <a href="#"  style="text-align: left;color: #0DBD8B;">← Back to all topics</a></p>
         </section>
 
         <section id="2">
             <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >Precautions</h2>
-            <h2>Media handling</h2>
-            <details>
-                <summary>Synapse</summary>
-                <p style="font-weight: 800;">Set up remote media retention</p>
-                <p class="indent">Use the <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html#media_retention" style="color: #0DBD8B;"> "media_retention"</a> config options and configure the remote media lifetime.</p>    
-                <p style="font-weight: 800;">Exclude remote media from your backups</p>
-                <p class="indent">In the directory that is configure in <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html#media_store_path" style="color: #0DBD8B;"> "media_store_path"</a> there is a subdirectory called "remote_content". You should exclude this from your backups to prevent possibly illegal material from making its way into your backups (if you restore from backup, you will have to use the <a href="https://element-hq.github.io/synapse/latest/admin_api/media_admin_api.html#purge-remote-media-api" style="color: #0DBD8B;"> "Purge remote Media" admin API"</a> to tell synapse that the media is gone, otherwise your remote media will be broken).</p>
-            </details>
-
-            <details>
-                <summary>Conduwuit</summary>
-                <p style="font-weight: 800;">Placeholder</p>
-                <p class="indent"></p>
-            </details>
-
-            <details>
-                <summary>Conduit</summary>
-                <p style="font-weight: 800;">Placeholder</p>
-                <p class="indent"></p>
-            </details>
-
-            <h2>Check whats happening on your server</h2>
-            <details>
-                <summary>Synapse</summary>
-                <p style="font-weight: 800;">Check the rooms</p>
-                <p class="indent"> Most of the time the illegal content is unwanted, but some of your users might intentionally participate in rooms with the sole purpose of distributing illegal content. In that case, the best way to prevent illegal content on your server is to deactivate these users and blocking the questionable rooms to prevent future users from even joining them in the first place. <br> <br> List rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#list-room-api" style="color: #0DBD8B;"> "list_rooms" API</a>, block rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#block-room-api" style="color: #0DBD8B;"> "block-room" API</a> and deactivate accounts with the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#deactivate-account" style="color: #0DBD8B;"> "Deactivate account" admin API</a>. <br> Alternatively use <a href="https://github.com/etkecc/synapse-admin" style="color: #0DBD8B;"> Synapse Admin</a> for all of these tasks. </p>
-            </details>
-            
-            <details>
-                <summary>Conduwuit</summary>
-                <p style="font-weight: 800;">Placeholder</p>
-                <p class="indent"></p>
-            </details>
-
-            <details>
-                <summary>Conduit</summary>
-                <p style="font-weight: 800;">Placeholder</p>
-                <p class="indent"></p>
-            </details>
-
+            <h2>Make it harder for spammers</h2>
+            <p style="font-weight: 800;">Require more work for account registration</p>
+            <p class="indent"> At the bare minimum, require email validation for new accounts. <br> Think about captchas to hinder automated registrations.</p>    
+            <br>
+            <h2>Up your moderation</h2>
+            <p style="font-weight: 800;">Get more moderators/admins</p>
+            <p class="indent"> If you run a matrix server for the general public, think about getting more people involved in your moderation team to ensure quick reaction times in case of spam.</p>
+            <p style="font-weight: 800;">Assist with bots/tools</p>
+            <p class="indent"> Bots like <a href="https://the-draupnir-project.github.io/draupnir-documentation/bot/homeserver-administration" style="color: #0DBD8B;"> Draupnir</a> and <a href="https://the-draupnir-project.github.io/draupnir-documentation/bot/homeserver-administration" style="color: #0DBD8B;"> Mjolnir</a> have capabilities to make server administration easier.<br> <br> Webappas like <a href="https://github.com/etkecc/synapse-admin" style="color: #0DBD8B;"> Synapse Admin</a> can provide easy access to most of the available admin API functions. </p>
+            <br>
+            <h2>Make it easy to reach you</h2>
+            <p style="font-weight: 800;">Set up MSC1929</p>
+            <p class="indent"> <a href="https://spec.matrix.org/v1.14/client-server-api/#getwell-knownmatrixsupport" style="color: #0DBD8B;"> MSC1929</a> provides a standardized way to get contact info of a matrix server admin/moderator, this is extremely helpfull when dealing with spam because it can massively reduce the time until the server admin gets notified about possible abuse originating from their server.</p>    
+            <p style="font-weight: 800;">Other ways of contact</p>
+            <p class="indent">Another good idea is to provide methods for contacting you on your homepage. If your matrix server is "matrix-server.com" then thats also the place to put a website with contact info.</p>    
+            <br>
+            <h2>What if all that isnt enough?</h2>
+            <p style="font-weight: 800;">Disable registrations</p>
+            <p class="indent">If you cant properly moderate a server, be it because of lack of time / personell / tecnical knowledge, it might be the better call to just disable new registrations until you have figured out a good way for dealing with spam/abuse. The reality is that you might otherwise risk being put on block lists which might be even more damaging than to temporary disable new signups.</p>    
             <p> <a href="#"  style="text-align: left;color: #0DBD8B;">← Back to all topics</a></p>
         </section>
 
         <section id="3">
             <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >I need help with all of this!</h2>
-            <p>Dont worry, it can be a bit overwhelming in the beginning, but luckily most of the tools/porjects which are covered in this guide have support rooms on matrix or other documentation online.</p>
+            <p>Dont worry, it can be a bit overwhelming in the beginning, but luckily most of the tools/projects which are covered in this guide, have support rooms on matrix or other documentation online.</p>
             <h2>Synapse administration</h2>
             <p style="font-weight: 800;">Online documentation:</p>
             <p class="indent"> The online documentation for synapse can be found here: <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html" style="color: #0DBD8B;"> Docs</a> </p>   
@@ -254,15 +289,15 @@
             <p style="font-weight: 800;">Draupnir</p>
             <p class="indent">Online documentation: <a href="https://the-draupnir-project.github.io/draupnir-documentation/" style="color: #0DBD8B;"> Docs</a></p>
             <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#draupnir:matrix.org" style="color: #0DBD8B;">#draupnir:matrix.org</a> </p>
-
+            <br>
             <p style="font-weight: 800;">Meowlnir</p>
             <p class="indent">Online documentation: <a href="https://github.com/maunium/meowlnir" style="color: #0DBD8B;"> Docs</a></p>
             <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#meowlnir:maunium.net" style="color: #0DBD8B;">#meowlnir:maunium.net</a> </p>
-
+            <br>
             <p style="font-weight: 800;">Mjolnir</p>
             <p class="indent">Online documentation: <a href="https://github.com/matrix-org/mjolnir/blob/main/docs/setup.md" style="color: #0DBD8B;"> Docs</a></p>
             <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#mjolnir:matrix.org" style="color: #0DBD8B;">#mjolnir:matrix.org</a></p>
-            
+            <br>
             <h2>Webinterfaces</h2>
             <p style="font-weight: 800;">Synapse Admins Webapp</p>
             <p class="indent">Online documentation: <a href="https://github.com/etkecc/synapse-admin" style="color: #0DBD8B;"> Docs</a></p>
