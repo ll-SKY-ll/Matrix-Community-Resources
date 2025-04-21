@@ -161,6 +161,15 @@
                 <summary>Synapse</summary>
                 <p style="font-weight: 800;">Suspend the account of the spamming user </p>
                 <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#suspendunsuspend-account" style="color: #0DBD8B;"> "Suspend account" admin API</a> to suspend the user account to prevent further spam. </p>
+                <details>
+                    <summary>Example cURL command</summary>
+                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+            curl -X POST 'https://your-homeserver-url/_synapse/admin/v1/suspend/@user:example.com' \
+            -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"suspend": true}' 
+            </pre>
+                </details>
             </details>
 
             <details>
@@ -181,8 +190,24 @@
                 <summary>Synapse</summary>
                 <p style="font-weight: 800;">Issue redactions for all the events that the user has sent </p>
                 <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#redact-all-the-events-of-a-user" style="color: #0DBD8B;"> "Redact all events of a user" admin API</a> to puppet the user and send redactions for all events sent by the user. <br> 💡 Tip: If you provide a empty room-list in the API call, then all events from all rooms that the user is in, get redacted.  </p>
+                <details>
+                    <summary>Example cURL command</summary>
+                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+            curl -X POST 'https://your-homeserver-url/_synapse/admin/v1/users/@user:example.com/redactions' \
+            -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"user_id": "@user:example.com", "room_ids": []}' 
+            </pre>
+                </details>
                 <p style="font-weight: 800;">Delete the media that the user has uploaded </p>
                 <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#delete-media-uploaded-by-a-user" style="color: #0DBD8B;"> "Delete media uploaded by a user" admin API</a> to delete all media files uploaded by a user. </p>
+                <details>
+                    <summary>Example cURL command</summary>
+                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+            curl -X DELETE 'https://your-homeserver-url/_synapse/admin/v1/users/@user:example.com/media' \
+            -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+            </pre>
+                </details>
             </details>
 
             <details>
@@ -203,8 +228,22 @@
                 <summary>Synapse</summary>
                 <p style="font-weight: 800;">Query the whole user account</p>
                 <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#query-user-account" style="color: #0DBD8B;"> "Query user account" admin API</a> to get more info about the user account, things like threepids can be usefull for later investigations.</p>    
+                <details>
+                    <summary>Example cURL command</summary>
+                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+            curl -X GET 'https://your-homeserver-url/_synapse/admin/v2/users/@user:example.com' \
+            -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+            </pre>
+                </details>    
                 <p style="font-weight: 800;">List all devices incl. last seen ip addresses</p>
                 <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#list-all-devices" style="color: #0DBD8B;"> "List all devices" admin API</a> to get a list of connections from that account.</p>
+                <details>
+                    <summary>Example cURL command</summary>
+                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+            curl -X GET 'https://your-homeserver-url/_synapse/admin/v2/users/@user:example.com/devices' \
+            -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+            </pre>
+                </details> 
             </details>
             
             <details>
@@ -225,6 +264,13 @@
                 <summary>Synapse</summary>
                 <p style="font-weight: 800;">Deactivate the user account </p>
                 <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#deactivate-account" style="color: #0DBD8B;"> "Deactivate account" admin API</a> to ultimately deactivate the account. </p>
+                <details>
+                    <summary>Example cURL command</summary>
+                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+            curl -X POST 'https://your-homeserver-url/_synapse/admin/v1/deactivate/@user:example.com' \
+            -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+            </pre>
+                </details> 
             </details>
             
             <details>

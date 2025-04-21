@@ -8,7 +8,7 @@
         body {
             font-family: sans-serif;
             line-height: 1.6;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
             color: #333;
@@ -168,6 +168,13 @@
             <details>
                 <summary>Synapse</summary>
                 <p class="indent">Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/media_admin_api.html#purge-remote-media-api" style="color: #0DBD8B;"> "Purge remote Media" admin API</a> to delete all media from remote servers. <br> <br> 💡 This is not as destructive as it sounds, media like avatars or other images in chats will be re-downloaded from the original server as soon as a client requests it again. Youre only deleting your local cache  </p>
+                <details>
+                    <summary>Example cURL command</summary>
+                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+            curl -X POST 'https://your-homeserver-url/_synapse/admin/v1/purge_media_cache?before_ts=1800000000000' \
+            -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+            </pre>
+                </details> 
             </details>
 
             <details>
