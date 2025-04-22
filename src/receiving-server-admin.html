@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Server Admin Guide</title>
+    <title>Matrix Server Administrator Guide</title>
     <style>
         body {
             font-family: sans-serif;
@@ -163,7 +163,7 @@
             <p class="indent"> The most effective way to stop spam is to have the account of the spamming user deactivated. Try to contact the server administrator via contact information from <a href="https://spec.matrix.org/v1.14/client-server-api/#getwell-knownmatrixsupport" style="color: #0DBD8B;"> MSC1929</a>.</p>
             
             <p class="strong">Contact the administrators and moderators of the room that gets spammed</p>
-            <p class="indent"> This can be very tedious especially if the spammer moves on to another room after being banned. This also won't scale and is therefore not a viable option for larger incidents.</p>
+            <p class="indent"> This can be very tedious especially if the spammer moves on to another room after being banned. This also won't scale and is therefore not a viable option for larger homeservers with many users in many rooms.</p>
             <br>
             <h2>Clean-up the spam</h2>
             <p class="strong">Delete remote media</p>
@@ -223,7 +223,7 @@
             <details>
                 <summary>Synapse</summary>
                 <p class="strong">Check the rooms</p>
-                <p class="indent"> Most of the time the illegal content is unwanted but some of your users might intentionally participate in rooms with the sole purpose of distributing illegal content. In that case the best way to prevent illegal content on your server is to deactivate those user accounts and blocking the questionable rooms to prevent your future users from joining them in the first place. <br> <br> List rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#list-room-api" style="color: #0DBD8B;"> "list_rooms" API</a>, block rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#block-room-api" style="color: #0DBD8B;"> "block-room" API</a> and deactivate accounts with the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#deactivate-account" style="color: #0DBD8B;"> "Deactivate account" admin API</a>. <br> Alternatively use <a href="https://github.com/etkecc/synapse-admin" style="color: #0DBD8B;"> Synapse Admin</a> for all of these tasks. </p>
+                <p class="indent"> Most of the time the illegal content is unwanted but some of your users might intentionally participate in rooms with the sole purpose of distributing illegal content. In that case the best way to prevent illegal content on your server is to deactivate those user accounts and blocking the questionable rooms to prevent your users from joining them in the first place. <br> <br> List rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#list-room-api" style="color: #0DBD8B;"> "list_rooms" API</a>, block rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#block-room-api" style="color: #0DBD8B;"> "block-room" API</a> and deactivate accounts with the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#deactivate-account" style="color: #0DBD8B;"> "Deactivate account" admin API</a>. <br> Alternatively use <a href="https://github.com/etkecc/synapse-admin" style="color: #0DBD8B;"> Synapse Admin</a> for all of these tasks. </p>
             </details>
             
             <details>
