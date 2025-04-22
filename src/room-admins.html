@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Room Admin Guide</title>
+    <title>Matrix Room Administrator Guide</title>
     <style>
         body {
             font-family: sans-serif;
@@ -68,6 +68,9 @@
              margin-left: 1em;
              padding-left: 1em;
         }
+        .strong {
+             font-weight:800
+        }
         section:target ~ .default-content {
             display: none;
         }
@@ -113,31 +116,31 @@
 <body>
     <header>
         <p> <a href="index.html" class="home-button">Home</a> </p> <br>
-        <h1>Matrix Room Admin Guide</h1>
-        <p>Quickstart guide for setting up a Matrix room</p>        
+        <h1>Matrix Room Administrator Guide</h1>
+				<p>Quick start guide for setting up a Matrix room</p>
     </header>
 
     <main>
         <div class="default-content">
-            <p>The tips and tricks here are mant with spam and abuse in mind, this is not a guide for how to use Matrix clients like Element. If you need support for that, ask in the support room for the client you are using. </p>
+            <p>The tips and tricks here are meant with spam and abuse in mind; this is not a guide on using Matrix clients such as Element. If you need support for a client ask in its support room. </p>
             <br>
             <h2>Check your settings</h2>
-            <p style="font-weight: 800;">Join rules</p>
+            <p class="strong">Join rules</p>
             <p class="indent">Verify your room’s access settings: Public, Invite-only, Knock, or Space-limited.</p>
-            <p style="font-weight: 800;">Permissions</p>
+            <p class="strong">Permissions</p>
             <p class="indent">Check the permissions inside your room:</p>
             <ul>
                 <li>Who can send invites? Some people will send spam invites to your room to harm its reputation.</li>
                 <li>Who can notify everyone? People might try to annoy others by sending a message with "@room".</li>
             </ul>
             <br>
-            <h2>Dont loose control</h2>
-            <p style="font-weight: 800;">Setup backup accounts</p>
-            <p class="indent">By creating backup accounts on other Matrix servers, you can still access and manage your rooms—even if your usual server goes down. <br> After joining with your backup account(s), make sure to give them enough permissions in your room.</p>
+            <h2>Dont lose control</h2>
+            <p class="strong">Setup backup accounts</p>
+            <p class="indent">By creating backup accounts on other Matrix servers you can still access and manage your rooms—even if your usual server goes down. <br> After joining with your backup account(s) make sure to give them enough permissions in your room.</p>
             <br>
-            <h2>Dont be the only Admin / Mod</h2>
-            <p style="font-weight: 800;">Ask others to help </p>
-            <p class="indent">This can be tricky, especially in the beginning when your community is still small. But when your room grows, you should consider to promote members of your community to moderator and administrator.<br>This has two advantages. The first one is that the availability of active moderation gets better. The second advantage is that in case you loose interest in your community or matrix alltogether, the rooms you created dont become zombie rooms.</p>    
+            <h2>Dont be the only Admin / Moderator</h2>
+            <p class="strong">Ask others to help</p>
+            <p class="indent">This can be tricky, especially in the beginning, when your community is still small. But as your room grows you should consider promoting trusted members of your community to moderator or administrator.<br>This has two advantages: first is the availability of active moderation increases. Second, if you lose interest in your community or Matrix altogether the rooms you created don't become 'zombies'.</p>
 
         </div>
 
