@@ -68,6 +68,9 @@
              margin-left: 1em;
              padding-left: 1em;
         }
+        .strong {
+             font-weight: 800;
+        }
         section:target ~ .default-content {
             display: none;
         }
@@ -134,8 +137,8 @@
     <header>
         <p> <a href="index.html" class="home-button">Home</a> </p> <br>
         <h1>Matrix Server Admin Guide</h1>
-        <p>Tips for dealing with users of your server that send spam & illegal content</p>
-        
+        <p>Tips for dealing with users of your server that send spam &amp; illegal content</p>
+
         <nav>
             <ul>
                 <li><a href="#1">Immediate Actions</a></li>
@@ -148,8 +151,8 @@
     <main>
         <div class="default-content">
             <h2 style="color: #f51515;">Disclaimer:</h2>
-            <p>All tips and suggestions here are provided without any liability/warranty and represent no legal advice. <br> For legal advice, you need to contact a lawyer.</p>
-            <p>This guide is purely a suggestion of actions and practises that are supposed to help when dealing with abuse.</p>
+            <p>All tips and suggestions here are provided without any liability/warranty and are not legal advice.<br>For legal advice contact a lawyer.</p>
+            <p>This guide is contains suggestions of actions and practises that may help when dealing with abuse.</p>
         </div>
 
         <section id="1">
@@ -160,11 +163,11 @@
             <details>
                 <summary>Synapse</summary>
                 <h2>Stop the spam</h2>
-                    <p style="font-weight: 800;">Suspend the account of the spamming user </p>
+                    <p class="strong">Suspend the account of the spamming user</p>
                     <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#suspendunsuspend-account" style="color: #0DBD8B;"> "Suspend account" admin API</a> to suspend the user account to prevent further spam. </p>
                 <details>
                 <summary>Example cURL command</summary>
-                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                    <pre style="color: white; background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
                         curl -X POST 'https://your-homeserver-url/_synapse/admin/v1/suspend/@user:example.com' \
                         -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
                         -H "Content-Type: application/json" \
@@ -174,23 +177,23 @@
 
                 <br>
                 
-                <h2>Cleanup the spam</h2>
-                    <p style="font-weight: 800;">Issue redactions for all the events that the user has sent </p>
-                    <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#redact-all-the-events-of-a-user" style="color: #0DBD8B;"> "Redact all events of a user" admin API</a> to puppet the user and send redactions for all events sent by the user. <br> 💡 Tip: If you provide a empty room-list in the API call, then all events from all rooms that the user is in, get redacted.  </p>
+                <h2>Clean-up the spam</h2>
+                    <p class="strong">Issue redactions for all the events the account has sent</p>
+                    <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#redact-all-the-events-of-a-user" style="color: #0DBD8B;"> "Redact all events of a user" admin API</a> to 'puppet' the account and send redactions for all events sent by the account.<br> 💡 Tip: If you provide an empty room-list in the API call all events from all rooms that account is in are redacted.</p>
                 <details>
                     <summary>Example cURL command</summary>
-                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                    <pre style="color: white; background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
                         curl -X POST 'https://your-homeserver-url/_synapse/admin/v1/users/@user:example.com/redactions' \
                         -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
                         -H "Content-Type: application/json" \
                         -d '{"user_id": "@user:example.com", "room_ids": []}' 
                     </pre>
                 </details>
-                    <p style="font-weight: 800;">Delete the media that the user has uploaded </p>
-                    <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#delete-media-uploaded-by-a-user" style="color: #0DBD8B;"> "Delete media uploaded by a user" admin API</a> to delete all media files uploaded by a user. </p>
+                    <p class="strong">Delete the media that the account has uploaded</p>
+                    <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#delete-media-uploaded-by-a-user" style="color: #0DBD8B;"> "Delete media uploaded by a user" admin API</a> to delete all media files uploaded by an account.</p>
                 <details>
                 <summary>Example cURL command</summary>
-                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                    <pre style="color:white; background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
                         curl -X DELETE 'https://your-homeserver-url/_synapse/admin/v1/users/@user:example.com/media' \
                         -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
                     </pre>
@@ -198,21 +201,21 @@
                 
                 <br>
                 
-                <h2>Optional: collect info about the user</h2>
-                    <p style="font-weight: 800;">Query the whole user account</p>
-                    <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#query-user-account" style="color: #0DBD8B;"> "Query user account" admin API</a> to get more info about the user account, things like threepids can be usefull for later investigations.</p>    
+                <h2>Optional: collect information about the account</h2>
+                    <p class="strong">Query the user account</p>
+                    <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#query-user-account" style="color: #0DBD8B;"> "Query user account" admin API</a> to get more info about the user account; things like Third Party Identifiers (3PID also known as 'threepids') can be useful for later investigations.</p>
                 <details>
                 <summary>Example cURL command</summary>
-                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                    <pre style="color:white; background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
                         curl -X GET 'https://your-homeserver-url/_synapse/admin/v2/users/@user:example.com' \
                         -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
                     </pre>
-                </details>    
-                    <p style="font-weight: 800;">List all devices incl. last seen ip addresses</p>
+                </details>
+                    <p class="strong">List all devices including last seen IP addresses</p>
                     <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#list-all-devices" style="color: #0DBD8B;"> "List all devices" admin API</a> to get a list of connections from that account.</p>
                 <details>
                 <summary>Example cURL command</summary>
-                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                    <pre style="color:white; background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
                         curl -X GET 'https://your-homeserver-url/_synapse/admin/v2/users/@user:example.com/devices' \
                         -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
                     </pre>
@@ -221,11 +224,11 @@
                 <br>
         
                 <h2>Final actions</h2>
-                    <p style="font-weight: 800;">Deactivate the user account </p>
+                    <p class="strong">Deactivate the user account</p>
                     <p class="indent"> Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#deactivate-account" style="color: #0DBD8B;"> "Deactivate account" admin API</a> to ultimately deactivate the account. </p>
                 <details>
                 <summary>Example cURL command</summary>
-                    <pre style="background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+                    <pre style="color:white; background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
                         curl -X POST 'https://your-homeserver-url/_synapse/admin/v1/deactivate/@user:example.com' \
                         -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
                     </pre>
@@ -234,77 +237,77 @@
 
             <details>
                 <summary>Conduwuit</summary>
-                <p style="font-weight: 800;">Placeholder</p>
+                <p class="strong">Placeholder</p>
                 <p class="indent"></p>
             </details>
 
             <details>
                 <summary>Conduit</summary>
-                <p style="font-weight: 800;">Placeholder</p>
+                <p class="strong">Placeholder</p>
                 <p class="indent"></p>
             </details>
 
-            <p> <a href="#"  style="text-align: left;color: #0DBD8B;">← Back to all topics</a></p>
+            <p> <a href="#" style="text-align: left;color: #0DBD8B;">← Back to all topics</a></p>
         </section>
 
         <section id="2">
             <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >Precautions</h2>
             <h2>Make it harder for spammers</h2>
-            <p style="font-weight: 800;">Require more work for account registration</p>
-            <p class="indent"> At the bare minimum, require email validation for new accounts. <br> Think about captchas to hinder automated registrations.</p>    
+            <p class="strong">Require more work for account registration</p>
+            <p class="indent"> As a minimum require email validation for new accounts. <br> Think about captchas to hinder automated registrations.</p>
             <br>
-            <h2>Up your moderation</h2>
-            <p style="font-weight: 800;">Get more moderators/admins</p>
-            <p class="indent"> If you run a matrix server for the general public, think about getting more people involved in your moderation team to ensure quick reaction times in case of spam.</p>
-            <p style="font-weight: 800;">Assist with bots/tools</p>
-            <p class="indent"> Bots like <a href="https://the-draupnir-project.github.io/draupnir-documentation/bot/homeserver-administration" style="color: #0DBD8B;"> Draupnir</a> and <a href="https://the-draupnir-project.github.io/draupnir-documentation/bot/homeserver-administration" style="color: #0DBD8B;"> Mjolnir</a> have capabilities to make server administration easier.<br> <br> Webappas like <a href="https://github.com/etkecc/synapse-admin" style="color: #0DBD8B;"> Synapse Admin</a> can provide easy access to most of the available admin API functions. </p>
+            <h2>Increase moderation</h2>
+            <p class="strong">Appoint more moderators or administrators</p>
+            <p class="indent"> If you run a matrix server for the general public consider getting more people involved in your moderation team to ensure quick reaction times in case of spam.</p>
+            <p class="strong">Assist with bots and tools</p>
+            <p class="indent"> Bots like <a href="https://the-draupnir-project.github.io/draupnir-documentation/bot/homeserver-administration" style="color: #0DBD8B;"> Draupnir</a> and <a href="https://the-draupnir-project.github.io/draupnir-documentation/bot/homeserver-administration" style="color: #0DBD8B;"> Mjolnir</a> have capabilities to make server administration easier.<br> <br> Webapps like <a href="https://github.com/etkecc/synapse-admin" style="color: #0DBD8B;"> Synapse Admin</a> can provide easy access to most of the available admin API functions. </p>
             <br>
             <h2>Make it easy to reach you</h2>
-            <p style="font-weight: 800;">Set up MSC1929</p>
-            <p class="indent"> <a href="https://spec.matrix.org/v1.14/client-server-api/#getwell-knownmatrixsupport" style="color: #0DBD8B;"> MSC1929</a> provides a standardized way to get contact info of a matrix server admin/moderator, this is extremely helpfull when dealing with spam because it can massively reduce the time until the server admin gets notified about possible abuse originating from their server.</p>    
-            <p style="font-weight: 800;">Other ways of contact</p>
-            <p class="indent">Another good idea is to provide methods for contacting you on your homepage. If your matrix server is "matrix-server.com" then thats also the place to put a website with contact info.</p>    
+            <p class="strong">Configure MSC1929</p>
+            <p class="indent"> <a href="https://spec.matrix.org/v1.14/client-server-api/#getwell-knownmatrixsupport" style="color: #0DBD8B;"> MSC1929</a> provides a standardized way to get contact info of a Matrix server administrator or moderator; this is extremely helpful when dealing with spam because it can massively reduce the delay before the server admin gets notified about possible abuse originating from their server.</p>
+            <p class="strong">Other methods of contact</p>
+            <p class="indent">Another good idea is to provide methods for contacting you on your homepage. If your matrix server is "matrix-server.com" then thats also the place to put a website with contact info.</p>
             <br>
-            <h2>What if all that isnt enough?</h2>
-            <p style="font-weight: 800;">Disable registrations</p>
-            <p class="indent">If you cant properly moderate a server, be it because of lack of time / personell / tecnical knowledge, it might be the better call to just disable new registrations until you have figured out a good way for dealing with spam/abuse. The reality is that you might otherwise risk being put on block lists which might be even more damaging than to temporary disable new signups.</p>    
+            <h2>What if all that isn't enough?</h2>
+            <p class="strong">Disable registrations</p>
+            <p class="indent">If you can't properly moderate a server, be it because of lack of time / personnel / technical knowledge, it might be better to disable new registrations until you have figured out a way to deal with spam and abuse. The reality is you might otherwise risk being put on block lists which might be even more damaging than to temporarily disable new registrations.</p>
             <p> <a href="#"  style="text-align: left;color: #0DBD8B;">← Back to all topics</a></p>
         </section>
 
         <section id="3">
             <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >I need help with all of this!</h2>
-            <p>Dont worry, it can be a bit overwhelming in the beginning, but luckily most of the tools/projects which are covered in this guide, have support rooms on matrix or other documentation online.</p>
+            <p>Don't worry, it can be a bit overwhelming in the beginning, but luckily most of the tools/projects which are covered in this guide have support rooms on Matrix or other documentation online.</p>
             <h2>Synapse administration</h2>
-            <p style="font-weight: 800;">Online documentation:</p>
-            <p class="indent"> The online documentation for synapse can be found here: <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html" style="color: #0DBD8B;"> Docs</a> </p>   
-            <p style="font-weight: 800;">Support rooms on matrix:</p>
+            <p class="strong">Online documentation:</p>
+            <p class="indent"> The online documentation for Synapse can be found here: <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html" style="color: #0DBD8B;"> Docs</a> </p>
+            <p class="strong">Support rooms on matrix:</p>
             <p class="indent"> There is <a href="https://matrix.to/#/#synapse:codestorm.net" style="color: #0DBD8B;"> Synapse Admins (Community Edition)</a> which is run and managed by the community itself.</p> 
             <p class="indent"> There is <a href="https://matrix.to/#/#synapse:matrix.org" style="color: #0DBD8B;"> Synapse Admins</a> which is run and managed by matrix.org.</p> 
             <br>
             <h2>Conduit administration</h2>
-            <p style="font-weight: 800;">Online documentation:</p>
-            <p class="indent"> The online documentation for conduit can be found here: <a href="https://docs.conduit.rs/" style="color: #0DBD8B;"> Docs</a> </p>   
-            <p style="font-weight: 800;">Support rooms on matrix:</p>
+            <p class="strong">Online documentation:</p>
+            <p class="indent"> The online documentation for conduit can be found here: <a href="https://docs.conduit.rs/" style="color: #0DBD8B;"> Docs</a> </p>
+            <p class="strong">Support rooms on matrix:</p>
             <p class="indent"> There is <a href="https://matrix.to/#/#conduit:fachschaften.org" style="color: #0DBD8B;"> Conduit Matrix Server</a>.</p> 
             <br>
             <h2>Conduwuit administration</h2>
-            <p>Conduwuit is currently in a unknown state and its unclear how the future for it looks. <br> If one of the current forks end up as a clear path forward I am more than happy to link to the respective ressources here in the future too.</p>
+            <p>Conduwuit is currently in an unknown state and it's unclear what will happen in the future.<br>If one of the current forks becomes a clear path forward I am more than happy to link to the respective resources here in the future too.</p>
             <br>
             <h2>Moderation Bots</h2>
-            <p style="font-weight: 800;">Draupnir</p>
+            <p class="strong">Draupnir</p>
             <p class="indent">Online documentation: <a href="https://the-draupnir-project.github.io/draupnir-documentation/" style="color: #0DBD8B;"> Docs</a></p>
             <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#draupnir:matrix.org" style="color: #0DBD8B;">#draupnir:matrix.org</a> </p>
             <br>
-            <p style="font-weight: 800;">Meowlnir</p>
+            <p class="strong">Meowlnir</p>
             <p class="indent">Online documentation: <a href="https://github.com/maunium/meowlnir" style="color: #0DBD8B;"> Docs</a></p>
             <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#meowlnir:maunium.net" style="color: #0DBD8B;">#meowlnir:maunium.net</a> </p>
             <br>
-            <p style="font-weight: 800;">Mjolnir</p>
+            <p class="strong">Mjolnir</p>
             <p class="indent">Online documentation: <a href="https://github.com/matrix-org/mjolnir/blob/main/docs/setup.md" style="color: #0DBD8B;"> Docs</a></p>
             <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#mjolnir:matrix.org" style="color: #0DBD8B;">#mjolnir:matrix.org</a></p>
             <br>
-            <h2>Webinterfaces</h2>
-            <p style="font-weight: 800;">Synapse Admins Webapp</p>
+            <h2>Web interfaces</h2>
+            <p class="strong">Synapse Admins Webapp</p>
             <p class="indent">Online documentation: <a href="https://github.com/etkecc/synapse-admin" style="color: #0DBD8B;"> Docs</a></p>
             <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#synapse-admin:etke.cc" style="color: #0DBD8B;">#synapse-admin:etke.cc</a> </p>
             <br>
