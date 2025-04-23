@@ -87,7 +87,7 @@ footer {
     }
     .guide-card {
         border-color: #333;
-        background-color: #222;
+        background-color: #1b1b1b;
     }
     :root {
         --link-color: var(--primary-color-dark);
