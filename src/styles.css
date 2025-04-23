@@ -1,0 +1,136 @@
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+}
+header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+h1 {
+    color: #0DBD8B;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: #0DBD8B;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+nav a:hover {
+    background-color: #0b644b;
+}
+section {
+    margin-bottom: 40px;
+    display: none;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+section:target {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+footer {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #666;
+}
+.default-content {
+    display: block;
+}
+.indent {
+     margin-left: 1em;
+     padding-left: 1em;
+}
+.strong {
+     font-weight: 800;
+}
+section:target ~ .default-content {
+    display: none;
+}
+.home-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: #0DBD8B;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+.home-button:hover {
+    background-color: #f0f0f0;
+}
+details {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+}
+summary {
+    cursor: pointer;
+    padding: 5px;
+    outline: none;
+}
+details[open] {
+    background-color: #f9f9f9;
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #111;
+        color: #eee;
+    }
+    header, footer {
+        border-color: #333;
+    }
+    h1 {
+        color: #3EDD9C;
+    }
+    nav a {
+        color: #ffffff;
+    }
+    nav a:hover {
+        background-color: #0b644b;
+        color: #ffffff;
+    }
+    section {
+        border-color: #333;
+    }
+    .home-button {
+        color: #3EDD9C;
+    }
+    .home-button:hover {
+        background-color: #222;
+    }
+    details {
+        border-color: #333;
+    }
+    details[open] {
+        background-color: #222;
+    }
+}
