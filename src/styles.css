@@ -1,4 +1,15 @@
-
+:root {
+    --primary-color-light: #0DBD8B;
+    --secondary-color-light: #0b644b;
+    --primary-color-dark: #0DBD8B;
+    --secondary-color-dark: #0b644b;
+    --text-dark: #eee;
+    --text-light: #000000;
+    --background-dark: #111;
+    --background-light: #ffffff;
+    --link-color: var(--primary-color-light);
+    --accent-color: var(--primary-color-light);
+}
 body {
     font-family: sans-serif;
     line-height: 1.6;
@@ -14,7 +25,7 @@ header {
     position: relative;
 }
 h1 {
-    color: #0DBD8B;
+    color: var(--primary-color-light);
 }
 nav ul {
     list-style: none;
@@ -25,18 +36,18 @@ nav ul {
 }
 nav a {
     text-decoration: none;
-    color: white;
+    color: var(--text-light);
     font-weight: bold;
     padding: 8px 15px;
     border-radius: 20px;
-    background-color: #0DBD8B;
+    background-color: var(--primary-color-light);
     display: flex;
     align-items: center;
     gap: 8px;
     transition: all 0.2s ease;
 }
 nav a:hover {
-    background-color: #0b644b;
+    background-color: var(--secondary-color-light);
 }
 section {
     margin-bottom: 40px;
@@ -78,7 +89,7 @@ section:target ~ .default-content {
     top: 0;
     left: 0;
     text-decoration: none;
-    color: #0DBD8B;
+    color: var(--primary-color-light);
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 4px;
@@ -102,27 +113,28 @@ details[open] {
 }
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #111;
-        color: #eee;
+        background-color: var(--background-dark);
+        color: var(--text-dark);
     }
     header, footer {
         border-color: #333;
     }
     h1 {
-        color: #3EDD9C;
+        color: var(--primary-color-dark);
     }
     nav a {
-        color: #ffffff;
+        color: var(--text-dark);
+        background-color: var(--primary-color-dark);
     }
     nav a:hover {
-        background-color: #0b644b;
-        color: #ffffff;
+        background-color: var(--secondary-color-dark);
+        color: var(--text-dark);
     }
     section {
         border-color: #333;
     }
     .home-button {
-        color: #3EDD9C;
+        color: var(--primary-color-dark);
     }
     .home-button:hover {
         background-color: #222;
@@ -132,5 +144,9 @@ details[open] {
     }
     details[open] {
         background-color: #222;
+    }
+    :root {
+        --link-color: var(--primary-color-dark);
+        --accent-color: var(--primary-color-dark);
     }
 }

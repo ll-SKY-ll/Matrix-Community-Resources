@@ -29,10 +29,10 @@
         </div>
 
         <section id="1">
-            <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >Immediate actions</h2>
+            <h2 style="text-align: center; border-bottom: 2px solid var(--accent-color); padding-bottom: 2px" >Immediate actions</h2>
             <h2>Notify server and room admins</h2>
                 <p class="strong">Try contacting the administrators of the spamming account's homeserver</p>
-                <p class="indent"> The most effective way to stop spam is to have the account of the spamming user deactivated. Try to contact the server administrator via contact information from <a href="https://spec.matrix.org/v1.14/client-server-api/#getwell-knownmatrixsupport" style="color: #0DBD8B;"> MSC1929</a>.</p>
+                <p class="indent"> The most effective way to stop spam is to have the account of the spamming user deactivated. Try to contact the server administrator via contact information from <a href="https://spec.matrix.org/v1.14/client-server-api/#getwell-knownmatrixsupport" style="color: var(--link-color);"> MSC1929</a>.</p>
                 <p class="strong">Contact the administrators and moderators of the room that gets spammed</p>
                 <p class="indent"> This can be very tedious especially if the spammer moves on to another room after being banned. This also won't scale and is therefore not a viable option for larger homeservers with many users in many rooms.</p>
             <br>
@@ -41,7 +41,7 @@
 
             <details>
                 <summary>Synapse</summary>
-                    <p class="indent">Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/media_admin_api.html#purge-remote-media-api" style="color: #0DBD8B;"> "Purge remote Media" admin API</a> to delete all media from remote servers.<br> <br> 💡 This is not as destructive as it sounds; media like avatars or other images in chats will be re-downloaded from the original server as soon as a client requests it again. You're only deleting your server's local cache</p>
+                    <p class="indent">Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/media_admin_api.html#purge-remote-media-api" style="color: var(--link-color);"> "Purge remote Media" admin API</a> to delete all media from remote servers.<br> <br> 💡 This is not as destructive as it sounds; media like avatars or other images in chats will be re-downloaded from the original server as soon as a client requests it again. You're only deleting your server's local cache</p>
                 <details>
                 <summary>Example cURL command</summary>
                     <pre style="color: white; background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
@@ -63,18 +63,18 @@
                 <p class="indent"></p>
             </details>
             <br>
-                <p> <a href="#"  style="text-align: left;color: #0DBD8B;">← Back to all topics</a></p>
+                <p> <a href="#"  style="text-align: left;color: var(--link-color);">← Back to all topics</a></p>
         </section>
 
         <section id="2">
-            <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >Precautions</h2>
+            <h2 style="text-align: center; border-bottom: 2px solid var(--accent-color); padding-bottom: 2px" >Precautions</h2>
             <h2>Media handling</h2>
             <details>
                 <summary>Synapse</summary>
                 <p class="strong">Set up remote media retention</p>
-                <p class="indent">Use the <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html#media_retention" style="color: #0DBD8B;"> "media_retention"</a> config options and configure the remote media lifetime.</p>    
+                <p class="indent">Use the <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html#media_retention" style="color: var(--link-color);"> "media_retention"</a> config options and configure the remote media lifetime.</p>    
                 <p class="strong">Exclude remote media from your backups</p>
-                <p class="indent">In the directory that is configure in <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html#media_store_path" style="color: #0DBD8B;"> "media_store_path"</a> there is a sub-directory named "remote_content". You should exclude this from your backups to prevent possibly illegal material from making its way into your backups (if you restore from backup, you will have to use the <a href="https://element-hq.github.io/synapse/latest/admin_api/media_admin_api.html#purge-remote-media-api" style="color: #0DBD8B;"> "Purge remote Media" admin API"</a> to tell Synapse that the media is gone - otherwise your remote media will be broken).</p>
+                <p class="indent">In the directory that is configure in <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html#media_store_path" style="color: var(--link-color);"> "media_store_path"</a> there is a sub-directory named "remote_content". You should exclude this from your backups to prevent possibly illegal material from making its way into your backups (if you restore from backup, you will have to use the <a href="https://element-hq.github.io/synapse/latest/admin_api/media_admin_api.html#purge-remote-media-api" style="color: var(--link-color);"> "Purge remote Media" admin API"</a> to tell Synapse that the media is gone - otherwise your remote media will be broken).</p>
             </details>
 
             <details>
@@ -93,7 +93,7 @@
             <details>
                 <summary>Synapse</summary>
                 <p class="strong">Check the rooms</p>
-                <p class="indent"> Most of the time the illegal content is unwanted but some of your users might intentionally participate in rooms with the sole purpose of distributing illegal content. In that case the best way to prevent illegal content on your server is to deactivate those user accounts and blocking the questionable rooms to prevent your users from joining them in the first place. <br> <br> List rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#list-room-api" style="color: #0DBD8B;"> "list_rooms" API</a>, block rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#block-room-api" style="color: #0DBD8B;"> "block-room" API</a> and deactivate accounts with the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#deactivate-account" style="color: #0DBD8B;"> "Deactivate account" admin API</a>. <br> Alternatively use <a href="https://github.com/etkecc/synapse-admin" style="color: #0DBD8B;"> Synapse Admin</a> for all of these tasks. </p>
+                <p class="indent"> Most of the time the illegal content is unwanted but some of your users might intentionally participate in rooms with the sole purpose of distributing illegal content. In that case the best way to prevent illegal content on your server is to deactivate those user accounts and blocking the questionable rooms to prevent your users from joining them in the first place. <br> <br> List rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#list-room-api" style="color: var(--link-color);"> "list_rooms" API</a>, block rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#block-room-api" style="color: var(--link-color);"> "block-room" API</a> and deactivate accounts with the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#deactivate-account" style="color: var(--link-color);"> "Deactivate account" admin API</a>. <br> Alternatively use <a href="https://github.com/etkecc/synapse-admin" style="color: var(--link-color);"> Synapse Admin</a> for all of these tasks. </p>
             </details>
             
             <details>
@@ -108,47 +108,47 @@
                 <p class="indent"></p>
             </details>
 
-            <p> <a href="#"  style="text-align: left;color: #0DBD8B;">← Back to all topics</a></p>
+            <p> <a href="#"  style="text-align: left;color: var(--link-color);">← Back to all topics</a></p>
         </section>
 
         <section id="3">
-            <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >I need help with all of this!</h2>
+            <h2 style="text-align: center; border-bottom: 2px solid var(--accent-color); padding-bottom: 2px" >I need help with all of this!</h2>
                 <p>Don't worry, it can be a bit overwhelming in the beginning, but luckily most of the tools/projects which are covered in this guide have support rooms on Matrix or other documentation online.</p>
             <h2>Synapse administration</h2>
                 <p class="strong">Online documentation:</p>
-                <p class="indent"> The online documentation for Synapse can be found here: <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html" style="color: #0DBD8B;"> Docs</a> </p>
+                <p class="indent"> The online documentation for Synapse can be found here: <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html" style="color: var(--link-color);"> Docs</a> </p>
                 <p class="strong">Support rooms on matrix:</p>
-                <p class="indent"> There is <a href="https://matrix.to/#/#synapse:codestorm.net" style="color: #0DBD8B;"> Synapse Admins (Community Edition)</a> which is run and managed by the community itself.</p> 
-                <p class="indent"> There is <a href="https://matrix.to/#/#synapse:matrix.org" style="color: #0DBD8B;"> Synapse Admins</a> which is run and managed by matrix.org.</p> 
+                <p class="indent"> There is <a href="https://matrix.to/#/#synapse:codestorm.net" style="color: var(--link-color);"> Synapse Admins (Community Edition)</a> which is run and managed by the community itself.</p> 
+                <p class="indent"> There is <a href="https://matrix.to/#/#synapse:matrix.org" style="color: var(--link-color);"> Synapse Admins</a> which is run and managed by matrix.org.</p> 
             <br>
             <h2>Conduit administration</h2>
                 <p class="strong">Online documentation:</p>
-                <p class="indent"> The online documentation for conduit can be found here: <a href="https://docs.conduit.rs/" style="color: #0DBD8B;"> Docs</a> </p>   
+                <p class="indent"> The online documentation for conduit can be found here: <a href="https://docs.conduit.rs/" style="color: var(--link-color);"> Docs</a> </p>   
                 <p class="strong">Support rooms on matrix:</p>
-                <p class="indent"> There is <a href="https://matrix.to/#/#conduit:fachschaften.org" style="color: #0DBD8B;"> Conduit Matrix Server</a>.</p> 
+                <p class="indent"> There is <a href="https://matrix.to/#/#conduit:fachschaften.org" style="color: var(--link-color);"> Conduit Matrix Server</a>.</p> 
             <br>
             <h2>Conduwuit administration</h2>
                 <p>Conduwuit is currently in a unknown state and it's unclear what will happen in the future.<br>If one of the current forks becomes a clear path forward I am more than happy to link to the respective resources here in the future too.</p>
             <br>
             <h2>Moderation Bots</h2>
                 <p class="strong">Draupnir</p>
-                <p class="indent">Online documentation: <a href="https://the-draupnir-project.github.io/draupnir-documentation/" style="color: #0DBD8B;"> Docs</a></p>
-                <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#draupnir:matrix.org" style="color: #0DBD8B;">#draupnir:matrix.org</a> </p>
+                <p class="indent">Online documentation: <a href="https://the-draupnir-project.github.io/draupnir-documentation/" style="color: var(--link-color);"> Docs</a></p>
+                <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#draupnir:matrix.org" style="color: var(--link-color);">#draupnir:matrix.org</a> </p>
 
                 <p class="strong">Meowlnir</p>
-                <p class="indent">Online documentation: <a href="https://github.com/maunium/meowlnir" style="color: #0DBD8B;"> Docs</a></p>
-                <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#meowlnir:maunium.net" style="color: #0DBD8B;">#meowlnir:maunium.net</a> </p>
+                <p class="indent">Online documentation: <a href="https://github.com/maunium/meowlnir" style="color: var(--link-color);"> Docs</a></p>
+                <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#meowlnir:maunium.net" style="color: var(--link-color);">#meowlnir:maunium.net</a> </p>
 
                 <p class="strong">Mjolnir</p>
-                <p class="indent">Online documentation: <a href="https://github.com/matrix-org/mjolnir/blob/main/docs/setup.md" style="color: #0DBD8B;"> Docs</a></p>
-                <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#mjolnir:matrix.org" style="color: #0DBD8B;">#mjolnir:matrix.org</a></p>
+                <p class="indent">Online documentation: <a href="https://github.com/matrix-org/mjolnir/blob/main/docs/setup.md" style="color: var(--link-color);"> Docs</a></p>
+                <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#mjolnir:matrix.org" style="color: var(--link-color);">#mjolnir:matrix.org</a></p>
             
             <h2>Webinterfaces</h2>
                 <p class="strong">Synapse Admins Webapp</p>
-                <p class="indent">Online documentation: <a href="https://github.com/etkecc/synapse-admin" style="color: #0DBD8B;"> Docs</a></p>
-                <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#synapse-admin:etke.cc" style="color: #0DBD8B;">#synapse-admin:etke.cc</a> </p>
+                <p class="indent">Online documentation: <a href="https://github.com/etkecc/synapse-admin" style="color: var(--link-color);"> Docs</a></p>
+                <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#synapse-admin:etke.cc" style="color: var(--link-color);">#synapse-admin:etke.cc</a> </p>
             <br>
-                <p> <a href="#"  style="text-align: left;color: #0DBD8B;">← Back to all topics</a></p>
+                <p> <a href="#"  style="text-align: left;color: var(--link-color);">← Back to all topics</a></p>
         </section>
     </main>
 

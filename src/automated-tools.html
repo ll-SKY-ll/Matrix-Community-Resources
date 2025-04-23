@@ -25,73 +25,73 @@
     <main>
 
         <section id="1">
-            <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >Introduction</h2>
+            <h2 style="text-align: center; border-bottom: 2px solid var(--accent-color); padding-bottom: 2px" >Introduction</h2>
             <h2>What are moderation bots?</h2>
-                <p>Moderation bots in Matrix are mainly used to easily ban users from rooms, delete spam messages and handle server access control lists (ACLs) in rooms.<br> <br> The single most effective feature that all of them share, however, is the ability to subscribe to so-called "policy lists" where they can synchronize user and server bans. <br> The best example of such a list is the <a href="https://matrix.to/#/#community-moderation-effort-bl:neko.dev" style="color: #0DBD8B;">Community Moderation Effort (CME)</a> list. This list is maintained by a set of highly trusted community members and used by many in the matrix community to keep their rooms free of spam.<br> <br> </p>
+                <p>Moderation bots in Matrix are mainly used to easily ban users from rooms, delete spam messages and handle server access control lists (ACLs) in rooms.<br> <br> The single most effective feature that all of them share, however, is the ability to subscribe to so-called "policy lists" where they can synchronize user and server bans. <br> The best example of such a list is the <a href="https://matrix.to/#/#community-moderation-effort-bl:neko.dev" style="color: var(--link-color);">Community Moderation Effort (CME)</a> list. This list is maintained by a set of highly trusted community members and used by many in the matrix community to keep their rooms free of spam.<br> <br> </p>
             
             <h2>Why should I use a moderation bot?</h2>
                 <p class="strong">Automate banning spammers and removing spam</p>
                 <p class="indent">Bots also work while you sleep. Regular spammers, that join many rooms to spam, will often be added to shared policy lists pretty quickly. As a result most of the bad content will be automatically handled by your moderation bot.</p>
 
-                <p> <a href="#"  style="text-align: left;color: #0DBD8B;">← Back to all topics</a></p>
+                <p> <a href="#"  style="text-align: left;color: var(--link-color);">← Back to all topics</a></p>
         </section>
 
         <section id="2">
-            <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >Which bots exist?</h2>
+            <h2 style="text-align: center; border-bottom: 2px solid var(--accent-color); padding-bottom: 2px" >Which bots exist?</h2>
                 <p>Basic features all bots share:</p>
                 <p class="indent"> ✅ Automatically ban users in rooms based on policy lists</p>
                 <p class="indent"> ✅ Automatically set server ACLs in rooms based on policy lists</p>
                 <p class="indent"> ✅ Automatically redact messages based on preconfigured ban reasons</p>
             <br>
             <h2>Draupnir</h2>
-                <p class="strong" >Github repo: <a href="https://github.com/the-draupnir-project/Draupnir" style="color: #0DBD8B;"> Draupnir</a><br> Support room on matrix: <a href="https://matrix.to/#/#draupnir:matrix.org" style="color: #0DBD8B;">#draupnir:matrix.org</a></p>
+                <p class="strong" >Github repo: <a href="https://github.com/the-draupnir-project/Draupnir" style="color: var(--link-color);"> Draupnir</a><br> Support room on matrix: <a href="https://matrix.to/#/#draupnir:matrix.org" style="color: var(--link-color);">#draupnir:matrix.org</a></p>
                 <p class="indent"> Draupnir is a fork of mjolnir, with faster paced and more community driven development, often deployed to communities not associated with the Matrix Foundation. It's more performant than Mjolnir and has more features. Compared to Mjolnir it has also had a lot of work to make it harder to accidentally do something wrong.</p>
             <br>
             <h2>Meowlnir</h2>
-                <p class="strong" >Github repo: <a href="https://github.com/maunium/meowlnir" style="color: #0DBD8B;"> Meowlnir</a> <br> Support room on matrix: <a href="https://matrix.to/#/#meowlnir:maunium.net" style="color: #0DBD8B;">#meowlnir:maunium.net</a></p>
+                <p class="strong" >Github repo: <a href="https://github.com/maunium/meowlnir" style="color: var(--link-color);"> Meowlnir</a> <br> Support room on matrix: <a href="https://matrix.to/#/#meowlnir:maunium.net" style="color: var(--link-color);">#meowlnir:maunium.net</a></p>
                 <p class="indent"> Meowlnir is the youngest and probably fastest reacting bot. It works best with Synapse server and can even send redactions for 'softfailed' events.</p>
             <br>
             <h2>Mjolnir</h2>
-                <p class="strong" >Github repo: <a href="https://github.com/matrix-org/mjolnir" style="color: #0DBD8B;"> Mjolnir</a> <br> Support room on matrix: <a href="https://matrix.to/#/#mjolnir:matrix.org" style="color: #0DBD8B;">#mjolnir:matrix.org</a></p>
+                <p class="strong" >Github repo: <a href="https://github.com/matrix-org/mjolnir" style="color: var(--link-color);"> Mjolnir</a> <br> Support room on matrix: <a href="https://matrix.to/#/#mjolnir:matrix.org" style="color: var(--link-color);">#mjolnir:matrix.org</a></p>
                 <p class="indent"> Mjolnir is the oldest of the bots and is used for all rooms under matrix.org control. Similar to Draupnir but slower and with less features.</p>
             
-                <p> <a href="#"  style="text-align: left;color: #0DBD8B;">← Back to all topics</a></p>
+                <p> <a href="#"  style="text-align: left;color: var(--link-color);">← Back to all topics</a></p>
         </section>
 
         <section id="3">
-            <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >Policy lists</h2>
+            <h2 style="text-align: center; border-bottom: 2px solid var(--accent-color); padding-bottom: 2px" >Policy lists</h2>
             <h2>What are Policy lists?</h2>
                 <p class="indent">Policy lists are special matrix rooms that contain "m.policy.rule.user" events; these events can be read by moderation bots. Policy lists are like a shared blacklist and bots can subscribe to them.<br> For example: A user starts spamming in room A and as a result gets added to a policy list that your bot subscribes to. Your bot will block that user from your rooms automatically.</p>
             <br>
             <h2>What lists exist?</h2>
                 <p class="strong" >Community Moderation Effort (CME):</p>
-						<p class="indent"> This list is maintained by the Matrix community itself and contains spammer &amp; scammer accounts.<br> It is trusted by many; for example the Debian and  Ubuntu communities. This list is generally really fast and has an extremely low rate of false positives. Any false positives get removed as soon as managers are made aware of them.<br><br>The policy room is: <a href="https://matrix.to/#/#community-moderation-effort-bl:neko.dev" style="color: #0DBD8B;"> #community-moderation-effort-bl:neko.dev</a></p>
+						<p class="indent"> This list is maintained by the Matrix community itself and contains spammer &amp; scammer accounts.<br> It is trusted by many; for example the Debian and  Ubuntu communities. This list is generally really fast and has an extremely low rate of false positives. Any false positives get removed as soon as managers are made aware of them.<br><br>The policy room is: <a href="https://matrix.to/#/#community-moderation-effort-bl:neko.dev" style="color: var(--link-color);"> #community-moderation-effort-bl:neko.dev</a></p>
             <br>
                 <p class="strong" >Matrix.org Code of Conduct (COC):</p>
-                <p class="indent"> This list is maintained by the matrix.org foundation.<br> It is used by the foundation itself and some communities use it too. This list contains bans for all kinds of behaviour that violated the <a href="https://matrix.org/legal/code-of-conduct/" style="color: #0DBD8B;"> matrix.org code of conduct</a>. This means that this list not only contain spammers but also trolls, rude people and more.<br> <br> The policy room is: <a href="https://matrix.to/#/#matrix-org-coc-bl:matrix.org" style="color: #0DBD8B;"> #matrix-org-coc-bl:matrix.org</a></p>
+                <p class="indent"> This list is maintained by the matrix.org foundation.<br> It is used by the foundation itself and some communities use it too. This list contains bans for all kinds of behaviour that violated the <a href="https://matrix.org/legal/code-of-conduct/" style="color: var(--link-color);"> matrix.org code of conduct</a>. This means that this list not only contain spammers but also trolls, rude people and more.<br> <br> The policy room is: <a href="https://matrix.to/#/#matrix-org-coc-bl:matrix.org" style="color: var(--link-color);"> #matrix-org-coc-bl:matrix.org</a></p>
             <br>
                 <p style="font-weight: 800;" >More lists?</p>
-                <p class="indent"> There is a Matrix space with a large collection of ban lists; they usually have descriptions for the scope they aim to cover.<br><br>The space is at: <a href="https://matrix.to/#/#jjj-banlist-collection:matrix.org" style="color: #0DBD8B;"> #jjj-banlist-collection:matrix.org</a></p>
+                <p class="indent"> There is a Matrix space with a large collection of ban lists; they usually have descriptions for the scope they aim to cover.<br><br>The space is at: <a href="https://matrix.to/#/#jjj-banlist-collection:matrix.org" style="color: var(--link-color);"> #jjj-banlist-collection:matrix.org</a></p>
             <br>
             <br>
-                <p> <a href="#" style="text-align: left;color: #0DBD8B;">← Back to all topics</a></p>
+                <p> <a href="#" style="text-align: left;color: var(--link-color);">← Back to all topics</a></p>
         </section>
 
         <section id="4">
-            <h2 style="text-align: center; border-bottom: 2px solid #0DBD8B; padding-bottom: 2px" >Where can I get a bot?</h2>
+            <h2 style="text-align: center; border-bottom: 2px solid var(--accent-color); padding-bottom: 2px" >Where can I get a bot?</h2>
                 <p>Moderation bots require setup and maintenance; they also generally need accounts without rate limits to effectively delete spam. Most importantly they need to run on a permanent host. This will be out of reach for most users.<br>This page will show some of the alternative options.</p>
             <h2>Ask your homeserver admin</h2>
                 <p class="indent">You can ask your homeserver admin if they are open to the idea of offering you a moderation bot.<br> <br> Some servers (e.g: tchncs.de) offer their users the option to invite their moderation-bot to the user's rooms and give it moderator permissions.<br>This allows for basic functionality such as automatically banning users who get added to ban-lists and  automatically deleting spam. However this does not provide the full functionality of the bot since you won't have access to its management room.</p>
             <br>
             <h2>Draupnir4All</h2>
                 <p class="strong" >A service that offers Draupnir moderation bots for communities and moderators</p>
-                <p class="indent">This is a service, provided by MTRNord, to offer Draupnir instances with access to all its features for everyone.<br> For more information visit the project's <a href="https://docs.draupnir.midnightthoughts.space/" style="color: #0DBD8B;">website</a>.</p>
+                <p class="indent">This is a service, provided by MTRNord, to offer Draupnir instances with access to all its features for everyone.<br> For more information visit the project's <a href="https://docs.draupnir.midnightthoughts.space/" style="color: var(--link-color);">website</a>.</p>
             <br>
 
 
 
             <br>
-                <p> <a href="#" style="text-align: left;color: #0DBD8B;">← Back to all topics</a></p>
+                <p> <a href="#" style="text-align: left;color: var(--link-color);">← Back to all topics</a></p>
         </section>
 
     </main>

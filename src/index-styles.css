@@ -1,3 +1,14 @@
+:root {
+    --primary-color-light: #0DBD8B;
+    --secondary-color-light: #3EDD9C;
+    --primary-color-dark: #0DBD8B;
+    --secondary-color-dark: #3EDD9C;
+    --text-dark: #eee;
+    --text-light: #000000;
+    --background-dark: #111;
+    --background-light: #ffffff;
+    --link-color: var(--primary-color-light);
+}
 
 body {
     font-family: sans-serif;
@@ -6,6 +17,7 @@ body {
     margin: 0 auto;
     padding: 20px;
     color: #333;
+    background: var(--background-light);
 }
 header {
     text-align: center;
@@ -14,11 +26,11 @@ header {
     margin-bottom: 30px;
 }
 h1 {
-    color: #0DBD8B;
+    color: var(--primary-color-light);
 }
 h2.section-title {
-    color: #0DBD8B;
-    border-bottom: 2px solid #0DBD8B;
+    color: var(--primary-color-light);
+    border-bottom: 2px solid var(--primary-color-light);
     padding-bottom: 5px;
     margin-top: 40px;
 }
@@ -45,7 +57,7 @@ h2.section-title {
 }
 .guide-card h3 {
     margin-top: 0;
-    color: #0DBD8B;
+    color: var(--primary-color-light);
 }
 .guide-card a {
     text-decoration: none;
@@ -63,17 +75,21 @@ footer {
 }
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #111;
-        color: #eee;
+        background-color: var(--background-dark);
+        color: var(--text-dark);
     }
     header, footer {
         border-color: #333;
     }
     h1, h2.section-title, .guide-card h3 {
-        color: #3EDD9C;
+        color: var(--primary-color-dark);
+        border-bottom: 2px solid var(--primary-color-dark);
     }
     .guide-card {
         border-color: #333;
         background-color: #222;
+    }
+    :root {
+        --link-color: var(--primary-color-dark);
     }
 }
