@@ -1,11 +1,13 @@
 :root {
-    --primary-color-light: #0DBD8B;
-    --secondary-color-light: #0b644b;
-    --primary-color-dark: #0DBD8B;
-    --secondary-color-dark: #0b644b;
-    --text-dark: #eee;
+    --primary-color-light: #047857;
+    --secondary-color-light: #15c795;
+    --primary-color-dark: #FF6D00;
+    --secondary-color-dark: #ffb77c;
+    --text-dark: #F5F5F5;
+    --navbar-text-dark: #000000;
+    --navbar-text-light: #eee;
     --text-light: #000000;
-    --background-dark: #111;
+    --background-dark: #111111;
     --background-light: #ffffff;
     --link-color: var(--primary-color-light);
     --accent-color: var(--primary-color-light);
@@ -17,6 +19,7 @@ body {
     margin: 0 auto;
     padding: 20px;
     color: #333;
+    background-color: var(--background-light);
 }
 header {
     border-bottom: 1px solid #ddd;
@@ -36,7 +39,7 @@ nav ul {
 }
 nav a {
     text-decoration: none;
-    color: var(--text-light);
+    color: var(--navbar-text-light);
     font-weight: bold;
     padding: 8px 15px;
     border-radius: 20px;
@@ -123,12 +126,12 @@ details[open] {
         color: var(--primary-color-dark);
     }
     nav a {
-        color: var(--text-dark);
+        color: var(--navbar-text-dark);
         background-color: var(--primary-color-dark);
     }
     nav a:hover {
         background-color: var(--secondary-color-dark);
-        color: var(--text-dark);
+        color: var(--navbar-text-dark);
     }
     section {
         border-color: #333;
@@ -143,7 +146,7 @@ details[open] {
         border-color: #333;
     }
     details[open] {
-        background-color: #222;
+        background-color: #181818;
     }
     :root {
         --link-color: var(--primary-color-dark);
