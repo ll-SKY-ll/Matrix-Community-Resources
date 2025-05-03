@@ -46,20 +46,24 @@
                 <summary>Example cURL command</summary>
                     <pre style="color: white; background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
     curl -X POST 'https://your-homeserver-url/_synapse/admin/v1/purge_media_cache?before_ts=1800000000000' \
-        -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
-                    </pre>
+        -H "Authorization: Bearer YOUR_ACCESS_TOKEN"</pre>
                 </details> 
             </details>
 
             <details>
-                <summary>Conduwuit</summary>
-                <p class="strong">Placeholder</p>
-                <p class="indent"></p>
+                <summary>Conduwuit / Continuwuity</summary>
+                    <p class="indent"> Use the media admin command in your admin room to delete all media from <span style="color: var(--accent-color);">one specific remote server</span>. <br> <br>
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">!admin media delete-all-from-server &lt;server name&gt;</span>
+                    </p>
+
+                    <p class="indent"> Use the media admin command in your admin room to delete all media from <span style="color: var(--accent-color);">all remote servers</span>. <br> <br>
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">!admin media delete-past-remote-media --after 8h</span> <br> The above command will delete all remote media from the past 8 hours.<br> <br> 💡 This is not as destructive as it sounds; media like avatars or other images in chats will be re-downloaded from the original server as soon as a client requests it again. You're only deleting your server's local cache 
+                    </p>
             </details>
 
             <details>
                 <summary>Conduit</summary>
-                <p class="strong">Placeholder</p>
+                <p class="strong">Conduit currently has no way of deleting media</p>
                 <p class="indent"></p>
             </details>
             <br>
@@ -108,6 +112,25 @@
                 <p class="indent"></p>
             </details>
 
+            <h2>Block invites from abusers serverwide</h2>
+            <details>
+                <summary>Synapse</summary>
+                <p class="strong">Block invites with Draupnir</p>
+                <p class="indent"> Spammers will often try to invite users to rooms with horrific room names and room avatars to shock and / or insult your users.<br> By installing <a href="https://the-draupnir-project.github.io/draupnir-documentation/bot/setup" style="color: var(--link-color);"> Draupnir</a> and also setting up the <a href="https://github.com/maunium/synapse-http-antispam" style="color: var(--link-color);"> Synapse http antispam module</a> you can block invites based on policy lists for all users on your server. <br> <br> For detailed instructions visit the <a href="https://the-draupnir-project.github.io/draupnir-documentation/protections/block-invitations-on-server-protection" style="color: var(--link-color);"> Draupnir documentation</a>.</p>
+            </details>
+            
+            <details>
+                <summary>Conduwuit</summary>
+                <p class="strong">Placeholder</p>
+                <p class="indent"></p>
+            </details>
+
+            <details>
+                <summary>Conduit</summary>
+                <p class="strong">Placeholder</p>
+                <p class="indent"></p>
+            </details>
+
             <p> <a href="#"  style="text-align: left;color: var(--link-color);">← Back to all topics</a></p>
         </section>
 
@@ -127,8 +150,12 @@
                 <p class="strong">Support rooms on matrix:</p>
                 <p class="indent"> There is <a href="https://matrix.to/#/#conduit:fachschaften.org" style="color: var(--link-color);"> Conduit Matrix Server</a>.</p> 
             <br>
-            <h2>Conduwuit administration</h2>
-                <p>Conduwuit is currently in a unknown state and it's unclear what will happen in the future.<br>If one of the current forks becomes a clear path forward I am more than happy to link to the respective resources here in the future too.</p>
+            <h2>Continuwuity / Conduwuit administration</h2>
+            <p>Conduwuit is dead, you may wish to take a look at Continuwuity </p>
+            <p class="strong">Online documentation:</p>
+            <p class="indent"> The online documentation for Continuwuity can be found here: <a href="https://continuwuity.org/" style="color: var(--link-color);"> Docs</a> </p>   
+            <p class="strong">Support rooms on matrix:</p>
+            <p class="indent"> There is <a href="https://matrix.to/#/#continuwuity:continuwuity.org" style="color: var(--link-color);"> Continuwuity</a>.</p> 
             <br>
             <h2>Moderation Bots</h2>
                 <p class="strong">Draupnir</p>
@@ -142,7 +169,7 @@
                 <p class="strong">Mjolnir</p>
                 <p class="indent">Online documentation: <a href="https://github.com/matrix-org/mjolnir/blob/main/docs/setup.md" style="color: var(--link-color);"> Docs</a></p>
                 <p class="indent">Support room on matrix: <a href="https://matrix.to/#/#mjolnir:matrix.org" style="color: var(--link-color);">#mjolnir:matrix.org</a></p>
-            
+            <br>
             <h2>Webinterfaces</h2>
                 <p class="strong">Synapse Admins Webapp</p>
                 <p class="indent">Online documentation: <a href="https://github.com/etkecc/synapse-admin" style="color: var(--link-color);"> Docs</a></p>
@@ -154,7 +181,7 @@
 
     <footer>
         <p>This guide is maintained by the Matrix admin community.</p>
-        <p>Last updated: <time datetime="YYYY-MM-DD">[update date]</time></p>
+        <p>Contribute on <a href="https://github.com/ll-SKY-ll/Matrix-Community-Resources#" style="color: var(--link-color);"> Github</a> or suggest improvements in <a href="https://matrix.to/#/#Matrix-admin-community:codestorm.net" style="color: var(--link-color);"> #Matrix-admin-community:codestorm.net</a></p>
     </footer>
 </body>
 </html>
