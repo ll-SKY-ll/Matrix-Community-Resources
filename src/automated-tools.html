@@ -27,7 +27,7 @@
         <section id="1">
             <h2 style="text-align: center; border-bottom: 2px solid var(--accent-color); padding-bottom: 2px" >Introduction</h2>
             <h2>What are moderation bots?</h2>
-                <p>Moderation bots in Matrix are mainly used to easily ban users from rooms, delete spam messages and handle server access control lists (ACLs) in rooms.<br> <br> The single most effective feature that all of them share, however, is the ability to subscribe to so-called "policy lists" where they can synchronize user and server bans. <br> The best example of such a list is the <a href="https://matrix.to/#/#community-moderation-effort-bl:neko.dev" style="color: var(--link-color);">Community Moderation Effort (CME)</a> list. This list is maintained by a set of highly trusted community members and used by many in the matrix community to keep their rooms free of spam.<br> <br> </p>
+                <p>Moderation bots in Matrix are mainly used to easily ban users from rooms, delete spam messages and handle server access control lists &#40;ACLs&#41; in rooms.<br> <br> The single most effective feature that all of them share, however, is the ability to subscribe to so-called "policy lists" where they can synchronize user and server bans. <br> The best example of such a list is the <a href="https://matrix.to/#/#community-moderation-effort-bl:neko.dev" style="color: var(--link-color);">Community Moderation Effort &#40;CME&#41;</a> list. This list is maintained by a set of highly trusted community members and used by many in the matrix community to keep their rooms free of spam.<br> <br> </p>
             
             <h2>Why should I use a moderation bot?</h2>
                 <p class="strong">Automate banning spammers and removing spam</p>
@@ -64,10 +64,10 @@
                 <p class="indent">Policy lists are special matrix rooms that contain "m.policy.rule.user" events; these events can be read by moderation bots. Policy lists are like a shared blacklist and bots can subscribe to them.<br> For example: A user starts spamming in room A and as a result gets added to a policy list that your bot subscribes to. Your bot will block that user from your rooms automatically.</p>
             <br>
             <h2>What lists exist?</h2>
-                <p class="strong" >Community Moderation Effort (CME):</p>
+                <p class="strong" >Community Moderation Effort &#40;CME&#41;:</p>
 				<p class="indent"> This list is maintained by the Matrix community itself and contains spammer &amp; scammer accounts.<br> It is trusted by many; for example the Debian and  Ubuntu communities. This list is generally really fast and has an extremely low rate of false positives. Any false positives get removed as soon as managers are made aware of them.<br><br>The policy room is: <a href="https://matrix.to/#/#community-moderation-effort-bl:neko.dev" style="color: var(--link-color);"> #community-moderation-effort-bl:neko.dev</a></p>
             <br>
-                <p class="strong" >Matrix.org Code of Conduct (COC):</p>
+                <p class="strong" >Matrix.org Code of Conduct &#40;COC&#41;:</p>
                 <p class="indent"> This list is maintained by the matrix.org foundation.<br> It is used by the foundation itself and some communities use it too. This list contains bans for all kinds of behaviour that violated the <a href="https://matrix.org/legal/code-of-conduct/" style="color: var(--link-color);"> matrix.org code of conduct</a>. This means that this list not only contain spammers but also trolls, rude people and more.<br> <br> The policy room is: <a href="https://matrix.to/#/#matrix-org-coc-bl:matrix.org" style="color: var(--link-color);"> #matrix-org-coc-bl:matrix.org</a></p>
             <br>
                 <p style="font-weight: 800;" >More lists?</p>
@@ -81,7 +81,7 @@
             <h2 style="text-align: center; border-bottom: 2px solid var(--accent-color); padding-bottom: 2px" >Where can I get a bot?</h2>
                 <p>Moderation bots require setup and maintenance; they also generally need accounts without rate limits to effectively delete spam. Most importantly they need to run on a permanent host. This will be out of reach for most users.<br>This page will show some of the alternative options.</p>
             <h2>Ask your homeserver admin</h2>
-                <p class="indent">You can ask your homeserver admin if they are open to the idea of offering you a moderation bot.<br> <br> Some servers (e.g: tchncs.de) offer their users the option to invite their moderation-bot to the user's rooms and give it moderator permissions.<br>This allows for basic functionality such as automatically banning users who get added to ban-lists and  automatically deleting spam. However this does not provide the full functionality of the bot since you won't have access to its management room.</p>
+                <p class="indent">You can ask your homeserver admin if they are open to the idea of offering you a moderation bot.<br> <br> Some servers &#40;e.g: tchncs.de&#41; offer their users the option to invite their moderation-bot to the user's rooms and give it moderator permissions.<br>This allows for basic functionality such as automatically banning users who get added to ban-lists and  automatically deleting spam. However this does not provide the full functionality of the bot since you won't have access to its management room.</p>
             <br>
             <h2>Draupnir4All</h2>
                 <p class="strong" >A service that offers Draupnir moderation bots for communities and moderators</p>
@@ -90,6 +90,10 @@
             <h2>Codestorm CME-Draupnir</h2>
                 <p class="strong" >A Draupnir bot that only follows the CME policy list</p>
                 <p class="indent">This is a bot run by <spam style="color: var(--accent-color)">@sky:codestorm.net</spam>, that you can invite to your rooms and give the necessary permissions.<br>It will ban based on the cme list and nothing else, since this bot is shared, you wont have access to the control room.<br>Ask in <a href="https://matrix.to/#/#Matrix-admin-community:codestorm.net" style="color: var(--link-color);">#Matrix-admin-community:codestorm.net</a> before you invite the bot.</p>
+            <br>
+            <h2>Rory.gay CME-Draupnir</h2>
+                <p class="strong" >A Draupnir bot that only follows the CME policy list</p>
+                <p class="indent">This is a bot run by <spam style="color: var(--accent-color)">@emma:rory.gay</spam>, that you can invite to your rooms and give the necessary permissions.<br>It will ban based on the cme list and nothing else, since this bot is shared, you wont have access to the control room.<br>Ask <a href="https://matrix.to/#/@emma:rory.gay" style="color: var(--link-color);">@emma:rory.gay</a> via DMs &#40;dont write hello, directly say what you want ;&#41; &#41; before you invite the bot.</p>
             <br>
 
             <br>
