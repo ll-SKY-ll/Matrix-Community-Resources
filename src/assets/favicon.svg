@@ -1,0 +1,8 @@
+<!-- favicon-shield-orange-on-black.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Admin Guides Shield">
+  <rect width="64" height="64" rx="12" fill="#000000"></rect>
+  <!-- shield -->
+  <path fill="#FF6D00" d="M32 10c6.6 3.3 13.2 4.9 20 5.3v12.5c0 12.1-8 22.9-20 28.9-12-6-20-16.8-20-28.9V15.3c6.8-.4 13.4-2 20-5.3z"></path>
+  <!-- bookmark (guides) -->
+  <path fill="#000000" d="M28.5 21h11a2.5 2.5 0 0 1 2.5 2.5v16.8l-7-4-7 4V23.5A2.5 2.5 0 0 1 28.5 21z"></path>
+</svg>
