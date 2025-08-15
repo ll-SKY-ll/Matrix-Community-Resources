@@ -42,7 +42,7 @@
 
             <details>
                 <summary>Synapse</summary>
-                    <p class="indent">Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/media_admin_api.html#purge-remote-media-api" style="color: var(--link-color);"> "Purge remote Media" admin API</a> to delete all media from remote servers.<br> <br> 💡 This is not as destructive as it sounds; media like avatars or other images in chats will be re-downloaded from the original server as soon as a client requests it again. You're only deleting your server's local cache</p>
+                    <p class="indent">Use the <a href="https://element-hq.github.io/synapse/latest/admin_api/media_admin_api.html#purge-remote-media-api" style="color: var(--link-color);"> "Purge remote Media" admin API</a> to delete all media from <span style="color: var(--accent-color);">all remote servers</span>.<br> <br> 💡 This is not as destructive as it sounds; media like avatars or other images in chats will be re-downloaded from the original server as soon as a client requests it again. You're only deleting your server's local cache</p>
                 <details>
                 <summary>Example cURL command</summary>
                     <pre style="color: white; background-color: #000000; padding: 10px; border-radius: 5px; overflow-x: auto;">
@@ -52,7 +52,7 @@
             </details>
 
             <details>
-                <summary>Conduwuit / Continuwuity</summary>
+                <summary>Continuwuity</summary>
                     <p class="indent"> Use the media admin command in your admin room to delete all media from <span style="color: var(--accent-color);">one specific remote server</span>. <br> <br>
                         <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">!admin media delete-all-from-server &lt;server name&gt;</span>
                     </p>
@@ -64,7 +64,9 @@
 
             <details>
                 <summary>Conduit</summary>
-                <p class="strong">Placeholder</p>
+                    <p class="indent"> Use the media admin command in your admin room to delete all media from <span style="color: var(--accent-color);">one specific remote server</span>. <br> <br>
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">@conduit:your.domain purge-media-from-server &lt;server name&gt;</span> <br> <br> 💡 This is not as destructive as it sounds; media like avatars or other images in chats will be re-downloaded from the original server as soon as a client requests it again. You're only deleting your server's local cache 
+                    </p>
                 <p class="indent"></p>
             </details>
             <br>
@@ -73,64 +75,42 @@
 
         <section id="2">
             <h2 style="text-align: center; border-bottom: 2px solid var(--accent-color); padding-bottom: 2px" >Precautions</h2>
-            <h2>Media handling</h2>
-            <details>
-                <summary>Synapse</summary>
-                <p class="strong">Set up remote media retention</p>
-                <p class="indent">Use the <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html#media_retention" style="color: var(--link-color);"> "media_retention"</a> config options and configure the remote media lifetime.</p>    
-                <p class="strong">Exclude remote media from your backups</p>
-                <p class="indent">In the directory that is configured in <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html#media_store_path" style="color: var(--link-color);"> "media_store_path"</a> there is a sub-directory named "remote_content". You should exclude this from your backups to prevent possibly illegal material from making its way into your backups &#40;if you restore from backup, you will have to use the <a href="https://element-hq.github.io/synapse/latest/admin_api/media_admin_api.html#purge-remote-media-api" style="color: var(--link-color);"> "Purge remote Media" admin API"</a> to tell Synapse that the media is gone - otherwise your remote media will be broken&#41;.</p>
-            </details>
-
-            <details>
-                <summary>Conduwuit</summary>
-                <p class="strong">Placeholder</p>
-                <p class="indent"></p>
-            </details>
-
-            <details>
-                <summary>Conduit</summary>
-                <p class="strong">Placeholder</p>
-                <p class="indent"></p>
-            </details>
-
-            <h2>Check what's happening on your server</h2>
-            <details>
-                <summary>Synapse</summary>
-                <p class="strong">Check the rooms</p>
-                <p class="indent"> Most of the time the illegal content is unwanted but some of your users might intentionally participate in rooms with the sole purpose of distributing illegal content. In that case the best way to prevent illegal content on your server is to deactivate those user accounts and blocking the questionable rooms to prevent your users from joining them in the first place. <br> <br> List rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#list-room-api" style="color: var(--link-color);"> "list_rooms" API</a>, block rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#block-room-api" style="color: var(--link-color);"> "block-room" API</a> and deactivate accounts with the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#deactivate-account" style="color: var(--link-color);"> "Deactivate account" admin API</a>. <br> Alternatively use <a href="https://github.com/etkecc/synapse-admin" style="color: var(--link-color);"> Synapse Admin</a> for all of these tasks. </p>
-            </details>
+            <h2>I need tips for:</h2>
             
             <details>
-                <summary>Conduwuit</summary>
-                <p class="strong">Placeholder</p>
-                <p class="indent"></p>
-            </details>
-
-            <details>
-                <summary>Conduit</summary>
-                <p class="strong">Placeholder</p>
-                <p class="indent"></p>
-            </details>
-
-            <h2>Block invites from abusers serverwide</h2>
-            <details>
                 <summary>Synapse</summary>
-                <p class="strong">Block invites with Draupnir</p>
-                <p class="indent"> Spammers will often try to invite users to rooms with horrific room names and room avatars to shock and / or insult your users.<br> By installing <a href="https://the-draupnir-project.github.io/draupnir-documentation/bot/setup" style="color: var(--link-color);"> Draupnir</a> and also setting up the <a href="https://github.com/maunium/synapse-http-antispam" style="color: var(--link-color);"> Synapse http antispam module</a> you can block invites based on policy lists for all users on your server. <br> <br> For detailed instructions visit the <a href="https://the-draupnir-project.github.io/draupnir-documentation/protections/block-invitations-on-server-protection" style="color: var(--link-color);"> Draupnir documentation</a>.</p>
+                <h2 style="color: var(--accent-color);">Media handling</h2>
+                    <p class="strong">Set up remote media retention</p>
+                    <p class="indent">Use the <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html#media_retention" style="color: var(--link-color);"> "media_retention"</a> config options and configure the remote media lifetime.</p>    
+                    <p class="strong">Exclude remote media from your backups</p>
+                    <p class="indent">In the directory that is configured in <a href="https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html#media_store_path" style="color: var(--link-color);"> "media_store_path"</a> there is a sub-directory named "remote_content". You should exclude this from your backups to prevent possibly illegal material from making its way into your backups &#40;if you restore from backup, you will have to use the <a href="https://element-hq.github.io/synapse/latest/admin_api/media_admin_api.html#purge-remote-media-api" style="color: var(--link-color);"> "Purge remote Media" admin API"</a> to tell Synapse that the media is gone - otherwise your remote media will be broken&#41;.</p>
+
+                <br>
+                
+                <h2 style="color: var(--accent-color);">Check what's happening on your server</h2>
+                    <p class="strong">Check the rooms</p>
+                    <p class="indent"> Most of the time the illegal content is unwanted but some of your users might intentionally participate in rooms with the sole purpose of distributing illegal content. In that case the best way to prevent illegal content on your server is to deactivate those user accounts and blocking the questionable rooms to prevent your users from joining them in the first place. <br> <br> List rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#list-room-api" style="color: var(--link-color);"> "list_rooms" API</a>, block rooms via the <a href="https://element-hq.github.io/synapse/latest/admin_api/rooms.html#block-room-api" style="color: var(--link-color);"> "block-room" API</a> and deactivate accounts with the <a href="https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#deactivate-account" style="color: var(--link-color);"> "Deactivate account" admin API</a>. <br> <br> Alternatively use <a href="https://github.com/etkecc/synapse-admin" style="color: var(--link-color);"> Synapse Admin</a> for all of these tasks. </p>
+
+                <br>
+                
+                <h2 style="color: var(--accent-color);">Block invites from abusers serverwide</h2>
+                    <p class="strong">Block invites with Draupnir</p>
+                    <p class="indent"> Spammers will often try to invite users to rooms with horrific room names and room avatars to shock and / or insult your users.<br> By installing <a href="https://the-draupnir-project.github.io/draupnir-documentation/bot/setup" style="color: var(--link-color);"> Draupnir</a> and also setting up the <a href="https://github.com/maunium/synapse-http-antispam" style="color: var(--link-color);"> Synapse http antispam module</a> you can block invites based on policy lists for all users on your server. <br> <br> For detailed instructions visit the <a href="https://the-draupnir-project.github.io/draupnir-documentation/protections/block-invitations-on-server-protection" style="color: var(--link-color);"> Draupnir documentation</a>.</p>           
             </details>
-            
+
             <details>
-                <summary>Conduwuit</summary>
-                <p class="strong">Placeholder</p>
-                <p class="indent"></p>
+                <summary>Continuwuity</summary>
+                <h2 style="color: var(--accent-color);">Coming soon</h2>
             </details>
 
             <details>
                 <summary>Conduit</summary>
-                <p class="strong">Placeholder</p>
-                <p class="indent"></p>
-            </details>
+                <h2 style="color: var(--accent-color);">Media handling</h2>
+                    <p class="strong">Set up remote media retention</p>
+                    <p class="indent">Use the <a href="https://docs.conduit.rs/configuration.html#example-1" style="color: var(--link-color);"> "media_retention"</a> config options and configure the remote media lifetime.</p>
+                <br>
+
+                </details>
 
             <p> <a href="#"  style="text-align: left;color: var(--link-color);">← Back to all topics</a></p>
         </section>

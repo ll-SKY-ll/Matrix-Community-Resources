@@ -123,9 +123,19 @@
             <details>
                 <summary>Conduit</summary>
                 <h2 style="color: var(--accent-color);">Stop the spam</h2>
-                    <p class="strong">Deactivate the account of the spamming user</p>
+                    <p class="strong">Deactivate the account of the spamming user and optionally delete all media the user has uploaded.</p>
                     <p class="indent"> Use the account deactivation command in your admin room to deactivate the user account and prevent further spam. <br> <br>
-                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">@conduit:your-domain.tld deactivate-user @your-user:yor-domain.tld</span>
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">@conduit:your.domain deactivate-user @your-user:yor-domain.tld</span> 
+                    </p>
+                    <p class="indent">The same command can be used with the "--purge-media" flag to automatically delete all media when deactivating the user.<br> <br>
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">@conduit:your.domain deactivate-user @your-user:yor-domain.tld --purge-media</span> 
+                    </p>
+                
+                <br>
+                
+                <h2 style="color: var(--accent-color);">Optional: disable registration temporarily</h2>
+                    <p class="indent"> If the spammer keeps making accounts, you can temporarily disable registrations until you feel comfortable to open it again (doing it via the admin command will not persist and reset on the next server restart). <br> <br>
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">@conduit:your.domain allow-registration false</span>
                     </p>
             </details>
 
