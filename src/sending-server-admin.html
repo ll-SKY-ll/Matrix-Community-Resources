@@ -109,7 +109,7 @@
                 <h2 style="color: var(--accent-color);">Stop the spam</h2>
                     <p class="strong">Suspend the account of the spamming user</p>
                     <p class="indent"> Use the <a href="https://continuwuity.org/admin_reference#admin-users-suspend" style="color: var(--link-color);"> "users suspend" admin command</a> in your admin room to suspend the user account and prevent further spam. <br> <br>
-                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">!admin users suspend &lt;user ID&gt;</span>
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: pre-wrap; padding: 8px; overflow-x: auto;">!admin users suspend &lt;user ID&gt;</span>
                     </p>
                 
                 <br>
@@ -117,7 +117,7 @@
                 <h2 style="color: var(--accent-color);">Clean-up the spam</h2>
                     <p class="strong">Delete the media that the account has uploaded</p>
                     <p class="indent"> Use the <a href="https://continuwuity.org/admin_reference#admin-media-delete-all-from-user" style="color: var(--link-color);"> "media delete-all-from-user" admin command</a> in your admin room to delete all media that the user has uploaded. <br> <br>
-                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">!admin media delete-all-from-user &lt;user ID&gt;</span>
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: pre-wrap; padding: 8px; overflow-x: auto;">!admin media delete-all-from-user &lt;user ID&gt;</span>
                     </p>
 
                 <br>
@@ -125,7 +125,7 @@
                 <h2 style="color: var(--accent-color);">Optional: collect information about the account</h2>
                     <p class="strong"> List all devices, including last seen IP addresses</p>
                     <p class="indent"> Use the <a href="https://continuwuity.org/admin_reference#admin-query-users-list-devices-metadata" style="color: var(--link-color);"> "query users list-devices-metadata" admin command</a> in your admin room to list more information about the users sessions/devices. <br> <br>
-                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">!admin query users list-devices-metadata &lt;user ID&gt;</span>
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: pre-wrap; padding: 8px; overflow-x: auto;">!admin query users list-devices-metadata &lt;user ID&gt;</span>
                     </p>
             
                 <br>
@@ -133,7 +133,7 @@
                 <h2 style="color: var(--accent-color);">Final actions</h2>
                     <p class="strong">Deactivate the account of the spamming user</p>
                     <p class="indent"> Use the <a href="https://continuwuity.org/admin_reference#admin-users-deactivate" style="color: var(--link-color);"> "users deactivate" admin command</a> in your admin room to deactivate the user account and prevent further spam. <br> <br>
-                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">!admin users deactivate &lt;user ID&gt;</span>
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: pre-wrap; padding: 8px; overflow-x: auto;">!admin users deactivate &lt;user ID&gt;</span>
                     </p>
                 
                 <br>
@@ -144,17 +144,17 @@
                 <h2 style="color: var(--accent-color);">Stop the spam</h2>
                     <p class="strong">Deactivate the account of the spamming user and optionally delete all media the user has uploaded.</p>
                     <p class="indent"> Use the account deactivation command in your admin room to deactivate the user account and prevent further spam. <br> <br>
-                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">@conduit:your.domain deactivate-user @your-user:yor-domain.tld</span> 
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: pre-wrap; padding: 8px; overflow-x: auto;">@conduit:your.domain deactivate-user @your-user:yor-domain.tld</span> 
                     </p>
                     <p class="indent">The same command can be used with the "--purge-media" flag to automatically delete all media when deactivating the user.<br> <br>
-                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">@conduit:your.domain deactivate-user @your-user:yor-domain.tld --purge-media</span> 
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: pre-wrap; padding: 8px; overflow-x: auto;">@conduit:your.domain deactivate-user @your-user:yor-domain.tld --purge-media</span>
                     </p>
                 
                 <br>
                 
                 <h2 style="color: var(--accent-color);">Optional: disable registration temporarily</h2>
                     <p class="indent"> If the spammer keeps making accounts, you can temporarily disable registrations until you feel comfortable to open it again (doing it via the admin command will not persist and reset on the next server restart). <br> <br>
-                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: nowrap; padding: 8px; overflow-x: auto;">@conduit:your.domain allow-registration false</span>
+                        <span style="color: white; background-color: #000000; border-radius: 5px; display: inline-block; white-space: pre-wrap; padding: 8px; overflow-x: auto;">@conduit:your.domain allow-registration false</span>
                     </p>
             </details>
 
